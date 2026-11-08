@@ -1,0 +1,19 @@
+﻿@{
+    ViewData["Title"] = "Vulnerable search";
+}
+
+<h2>Product search</h2>
+
+<form asp-action="Search" method="post">
+    <input type="text" name="productName" placeholder="Insert product name..." />
+    <button type="submit">Search</button>
+</form>
+
+@if (ViewBag.Products != null) {
+    <h3>Výsledky pre: @ViewBag.SearchTerm</h3>
+    <ul>
+        @foreach (var product in ViewBag.Products) {
+            <li>@product.Name - @product.Price €</li>
+        }
+    </ul>
+}
